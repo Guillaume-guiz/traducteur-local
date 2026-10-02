@@ -200,7 +200,9 @@ puis fais une dictée et accepte la demande de macOS.
 - **Parakeet v3** (NVIDIA, version int8 au format ONNX) pour la transcription, embarqué dans l'app grâce à la bibliothèque `transcribe-rs`. Environ 0,2 seconde pour une phrase, 1,4 seconde pour 30 secondes de parole sur une puce M1 Max.
 - **Les API de macOS** pour le reste : écoute de la touche Ctrl, simulation de Cmd+C et Cmd+V, réglage du volume, fenêtres flottantes.
 
-Le détail (rôle de chaque fichier, décisions prises et pourquoi, pièges rencontrés) est dans [CLAUDE.md](CLAUDE.md). Ce fichier sert aussi de contexte à Claude Code : ouvre le dossier avec Claude Code et pose-lui tes questions sur le code, ou demande-lui une modification.
+Le détail (rôle de chaque fichier, décisions prises et pourquoi, pièges rencontrés) est dans [CLAUDE.md](CLAUDE.md).
+
+Comment cette app a été construite avec Claude Code, étape par étape, et les garde-fous pour construire la sienne : [docs/construire-son-app-mac.md](docs/construire-son-app-mac.md). Ce fichier sert aussi de contexte à Claude Code : ouvre le dossier avec Claude Code et pose-lui tes questions sur le code, ou demande-lui une modification.
 
 Pour lancer l'app en mode développement (rechargement automatique de l'interface) :
 ```
