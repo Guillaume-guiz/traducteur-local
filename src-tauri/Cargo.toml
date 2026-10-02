@@ -1,0 +1,44 @@
+[package]
+name = "traducteur-local"
+version = "1.0.0"
+description = "Traducteur et dictée 100 % locaux pour macOS (Ollama + Parakeet)"
+authors = ["Monsieur Guiz"]
+license = "MIT"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "traducteur_local_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon", "macos-private-api"] }
+tauri-plugin-opener = "2"
+tauri-plugin-global-shortcut = "2"
+tauri-plugin-clipboard-manager = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+reqwest = { version = "0.12", features = ["json"] }
+core-graphics = "0.25"
+core-foundation = "0.10"
+cpal = "0.15"
+regex = "1"
+transcribe-rs = { version = "0.3", features = ["onnx"] }
+# Réglages macOS de la pastille que Tauri n'expose pas (ne pas activer l'app au clic).
+objc2 = "0.6"
+
+[dev-dependencies]
+hound = "3.5"
+
+
+# En dev, optimiser les dépendances (transcription, audio) : sinon la dictée
+# est 5 à 10 fois plus lente qu'en version installée et les mesures sont faussées.
+[profile.dev.package."*"]
+opt-level = 3
