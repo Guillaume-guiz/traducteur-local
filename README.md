@@ -35,14 +35,14 @@ Deux façons de faire. La première est la plus simple ; la seconde te permet de
 ### Option A : télécharger l'app toute prête
 
 1. Installe [Ollama](https://ollama.com/download) et ouvre-le une fois.
-2. Télécharge `Traducteur-local-1.0.0-mac.zip` dans la page [Releases](https://github.com/<compte-github>/traducteur-local/releases) du dépôt, décompresse-le et glisse `Traducteur local.app` dans ton dossier Applications.
+2. Télécharge `Traducteur-local-1.0.0-mac.zip` dans la page [Releases](https://github.com/Guillaume-guiz/traducteur-local/releases) du dépôt, décompresse-le et glisse `Traducteur local.app` dans ton dossier Applications.
 3. L'app n'est pas signée par un compte développeur Apple, donc macOS la bloque au premier lancement (« l'app est endommagée » ou « développeur non identifié »). Ouvre le Terminal et lance :
    ```
    xattr -dr com.apple.quarantine "/Applications/Traducteur local.app"
    ```
 4. Toujours dans le Terminal, télécharge les deux modèles d'IA (une seule fois, environ 6 Go) :
    ```
-   curl -fsSL https://raw.githubusercontent.com/<compte-github>/traducteur-local/main/scripts/preparer.sh | bash
+   curl -fsSL https://raw.githubusercontent.com/Guillaume-guiz/traducteur-local/main/scripts/preparer.sh | bash
    ```
 5. Ouvre `Traducteur local` depuis le dossier Applications, puis passe à « Premier lancement » plus bas.
 
@@ -56,7 +56,7 @@ Il te faut en plus les outils de développement :
 Puis :
 
 ```
-git clone https://github.com/<compte-github>/traducteur-local.git
+git clone https://github.com/Guillaume-guiz/traducteur-local.git
 cd traducteur-local
 scripts/installer.sh
 ```
